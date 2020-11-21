@@ -1,7 +1,9 @@
 <template>
   <div class="row">
-    <div class="col-12" v-for="(item, index) in classes" v-bind:key="index">
-      <p v-if="classes.length === 0">No classes to show</p>
+    <div class="col-12 py-4 text-center" v-if="classes.length === 0">
+      <p>No classes found</p>
+    </div>
+    <div class="col-12" v-for="(item, index) in classes" :key="index">
       <div class="card my-2">
         <div class="card-body">
           <div class="d-flex flex-row justify-content-between">
@@ -10,7 +12,7 @@
               <p>{{ item.description }}</p>
             </div>
             <div>
-              <button class="btn btn-danger" v-on:click="() => _delete(item.id)">
+              <button class="btn btn-danger" @click="() => _delete(item.id)">
                 Delete
               </button>
             </div>
